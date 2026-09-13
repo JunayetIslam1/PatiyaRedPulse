@@ -30,7 +30,7 @@
         <a href="{% url 'donor_list' %}" class="text-decoration-none">
             <div class="stats-card text-center reveal">
                 <div class="stats-icon stats-donors mx-auto">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-hand-holding-medical"></i>
                 </div>
                 <div class="stats-number">{{ total_donors }}</div>
                 <div class="stats-label">{% trans "Total Donors" %}</div>
@@ -41,7 +41,7 @@
         <a href="{% url 'donor_list' %}" class="text-decoration-none">
             <div class="stats-card text-center reveal">
                 <div class="stats-icon stats-available mx-auto">
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart-pulse"></i>
                 </div>
                 <div class="stats-number">{{ available_donors }}</div>
                 <div class="stats-label">{% trans "Available Now" %}</div>
@@ -52,7 +52,7 @@
         <a href="{% url 'blood_requests_list' %}" class="text-decoration-none">
             <div class="stats-card text-center reveal">
                 <div class="stats-icon stats-requests mx-auto">
-                    <i class="fas fa-list"></i>
+                    <i class="fas fa-notes-medical"></i>
                 </div>
                 <div class="stats-number">{{ total_requests }}</div>
                 <div class="stats-label">{% trans "Blood Requests" %}</div>
@@ -63,7 +63,7 @@
         <a href="{% url 'blood_requests_list' %}" class="text-decoration-none">
             <div class="stats-card text-center reveal">
                 <div class="stats-icon stats-emergency mx-auto">
-                    <i class="fas fa-exclamation-triangle"></i>
+                    <i class="fas fa-truck-medical"></i>
                 </div>
                 <div class="stats-number">{{ emergency_requests }}</div>
                 <div class="stats-label">{% trans "Emergency" %}</div>
