@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security: Production-এর জন্য SECRET_KEY
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-development-key-change-in-production')
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = True
 
 _allowed_hosts = os.environ.get('ALLOWED_HOSTS')
 ALLOWED_HOSTS = _allowed_hosts.split(',') if _allowed_hosts else ['*']
