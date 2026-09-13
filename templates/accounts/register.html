@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Donor Registration" %} — Patiya RedPulse{% endblock %}
+
+{% block content %}
+<datalist id="patiyaUnions">
+    <option value="Kolagaon"><option value="Kashiaish"><option value="Asia">
+    <option value="Kusumpura"><option value="Jiri"><option value="Junglekhain">
+    <option value="Baralia"><option value="Dhalghat"><option value="Habilasdwip">
+    <option value="Haidgaon"><option value="Kelishahar"><option value="Kachuai">
+    <option value="Kharena"><option value="Shovandandi"><option value="Bhatikhain">
+    <option value="Chhonhara"><option value="Dakshin Bhurshi">
+</datalist>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card reveal">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="fas fa-user-plus"></i> {% trans "Donor Registration" %}</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="text-danger mb-3">{% trans "Account Information" %}</h5>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Username" %} *</label>
+                                {{ form.username }}
+                                {% if form.username.errors %}
+                                    <div class="text-danger small">{{ form.username.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Password" %} *</label>
+                                {{ form.password1 }}
+                                {% if form.password1.errors %}
+                                    <div class="text-danger small">{{ form.password1.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Confirm Password" %} *</label>
+                                {{ form.password2 }}
+                                {% if form.password2.errors %}
+                                    <div class="text-danger small">{{ form.password2.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5 class="text-danger mb-3">{% trans "Personal Information" %}</h5>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Full Name" %} *</label>
+                                {{ form.full_name }}
+                                {% if form.full_name.errors %}
+                                    <div class="text-danger small">{{ form.full_name.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">{% trans "Blood Group" %} *</label>
+                                    {{ form.blood_group }}
+                                    {% if form.blood_group.errors %}
+                                        <div class="text-danger small">{{ form.blood_group.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">{% trans "Gender" %} *</label>
+                                    {{ form.gender }}
+                                    {% if form.gender.errors %}
+                                        <div class="text-danger small">{{ form.gender.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Age" %} * ({% trans "Must be 18+" %})</label>
+                                {{ form.age }}
+                                {% if form.age.errors %}
+                                    <div class="text-danger small">{{ form.age.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Mobile Number" %} *</label>
+                                {{ form.mobile_number }}
+                                {% if form.mobile_number.errors %}
+                                    <div class="text-danger small">{{ form.mobile_number.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Email (Optional)" %}</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <div class="text-danger small">{{ form.email.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="text-danger mb-3">{% trans "Location" %}</h5>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "District" %} *</label>
+                                {{ form.district }}
+                                {% if form.district.errors %}
+                                    <div class="text-danger small">{{ form.district.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Upazila" %} *</label>
+                                {{ form.upazila }}
+                                {% if form.upazila.errors %}
+                                    <div class="text-danger small">{{ form.upazila.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5 class="text-danger mb-3">{% trans "Donation Information" %}</h5>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Last Blood Donation Date" %} *</label>
+                                {{ form.last_donation_date }}
+                                {% if form.last_donation_date.errors %}
+                                    <div class="text-danger small">{{ form.last_donation_date.errors.0 }}</div>
+                                {% endif %}
+                                <small class="text-muted">{% trans "Used to calculate eligibility (90 days for men, 120 for women)" %}</small>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">{% trans "Availability Status" %} *</label>
+                                {{ form.availability_status }}
+                                {% if form.availability_status.errors %}
+                                    <div class="text-danger small">{{ form.availability_status.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <h6><i class="fas fa-info-circle"></i> {% trans "Important Information" %}</h6>
+                        <ul class="mb-0">
+                            <li>{% trans "Your phone number will be visible to blood seekers" %}</li>
+                            <li>{% trans "Eligibility is automatically calculated based on your gender-specific donation gap" %}</li>
+                            <li>{% trans "You can update your availability status anytime" %}</li>
+                            <li>{% trans "Registration is free and for humanitarian purposes only" %}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-user-plus"></i> {% trans "Register as Donor" %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="text-center mt-3">
+            <p>{% trans "Already registered?" %} <a href="{% url 'login' %}" class="text-primary">{% trans "Login here" %}</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h4>
+    <div>
+        <a href="{% url 'manage_donors' %}" class="btn btn-outline-primary me-2">
+            <i class="fas fa-users"></i> Manage Donors
+        </a>
+        <a href="{% url 'manage_requests' %}" class="btn btn-outline-primary">
+            <i class="fas fa-list"></i> Manage Requests
+        </a>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3 col-6">
+        <div class="stats-card">
+            <div class="stats-number">{{ total_donors }}</div>
+            <div class="stats-label">Total Donors</div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="stats-card">
+            <div class="stats-number">{{ available_donors }}</div>
+            <div class="stats-label">Available Donors</div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="stats-card">
+            <div class="stats-number">{{ total_requests }}</div>
+            <div class="stats-label">Total Requests</div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="stats-card">
+            <div class="stats-number">{{ emergency_requests }}</div>
+            <div class="stats-label">Emergency Requests</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-users"></i> Recent Donors</h5>
+            </div>
+            <div class="card-body">
+                {% if recent_donors %}
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Blood Group</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for donor in recent_donors %}
+                                    <tr>
+                                        <td>{{ donor.full_name }}</td>
+                                        <td><span class="blood-group-badge">{{ donor.blood_group }}</span></td>
+                                        <td>
+                                            {% if donor.is_active %}
+                                                <span class="badge bg-success">Active</span>
+                                            {% else %}
+                                                <span class="badge bg-danger">Blocked</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="text-muted text-center">No recent donors</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-list"></i> Recent Requests</h5>
+            </div>
+            <div class="card-body">
+                {% if recent_requests %}
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Patient</th>
+                                    <th>Blood Group</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for request in recent_requests %}
+                                    <tr>
+                                        <td>{{ request.patient_name }}</td>
+                                        <td><span class="blood-group-badge">{{ request.required_blood_group }}</span></td>
+                                        <td>
+                                            {% if request.is_emergency %}
+                                                <span class="badge bg-danger">Emergency</span>
+                                            {% else %}
+                                                <span class="badge bg-secondary">Normal</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="text-muted text-center">No recent requests</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h5><i class="fas fa-cog"></i> Quick Actions</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3 col-6 mb-3">
+                <a href="{% url 'manage_donors' %}" class="btn btn-outline-primary w-100">
+                    <i class="fas fa-users"></i><br>Manage Donors
+                </a>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <a href="{% url 'manage_requests' %}" class="btn btn-outline-primary w-100">
+                    <i class="fas fa-list"></i><br>Manage Requests
+                </a>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <a href="/admin/" class="btn btn-outline-primary w-100">
+                    <i class="fas fa-database"></i><br>Django Admin
+                </a>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <a href="{% url 'donor_list' %}" class="btn btn-outline-primary w-100">
+                    <i class="fas fa-search"></i><br>View Donor List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

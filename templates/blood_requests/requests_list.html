@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Blood Requests" %} — Patiya RedPulse{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <h4 class="mb-0"><i class="fas fa-list"></i> {% trans "Blood Requests" %}</h4>
+    <a href="{% url 'submit_blood_request' %}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> {% trans "Submit New Request" %}
+    </a>
+</div>
+
+{% if requests %}
+    <div class="row">
+        {% for request in requests %}
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card reveal {% if request.is_emergency %}border-danger{% endif %} h-100">
+                    {% if request.is_emergency %}
+                        <div class="card-header bg-danger text-white">
+                            <i class="fas fa-exclamation-triangle"></i> {% trans "EMERGENCY" %}
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span class="blood-group-badge">{{ request.required_blood_group }}</span>
+                            {{ request.patient_name }}
+                        </h5>
+
+                        <p class="card-text">
+                            <strong>{% trans "Bags needed:" %}</strong> {{ request.number_of_bags }}<br>
+                            <strong>{% trans "Condition:" %}</strong> {{ request.patient_condition }}<br>
+                            <strong>{% trans "Hospital:" %}</strong> {{ request.hospital_name }}<br>
+                            <strong>{% trans "Required by:" %}</strong> {{ request.required_date|date:"M d, Y" }}<br>
+                            <strong>{% trans "Contact:" %}</strong> {{ request.contact_phone }}
+                        </p>
+
+                        {% if request.additional_info %}
+                            <p class="card-text">
+                                <strong>{% trans "Additional Info:" %}</strong><br>
+                                <small class="text-muted">{{ request.additional_info|truncatewords:20 }}</small>
+                            </p>
+                        {% endif %}
+
+                        <small class="text-muted d-block mb-2">
+                            <i class="fas fa-clock"></i> {{ request.request_date|timesince }} {% trans "ago" %}
+                        </small>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a href="tel:{{ request.contact_phone }}" class="call-btn flex-fill justify-content-center">
+                                <i class="fas fa-phone"></i> {% trans "Call" %}
+                            </a>
+                            <a href="https://wa.me/88{{ request.contact_phone }}?text=আসসালামু আলাইকুম, পটিয়া রেড-পালস থেকে আপনার {{ request.required_blood_group }} রক্তের অনুরোধ দেখলাম ({{ request.hospital_name }})। আমি কি সাহায্য করতে পারি?"
+                               target="_blank" rel="noopener" class="whatsapp-btn flex-fill justify-content-center">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <button type="button" class="copy-btn flex-fill justify-content-center" data-copy="{{ request.contact_phone }}" data-copied-label="{% trans 'Copied' %}">
+                                <i class="far fa-copy"></i> {% trans "Copy" %}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="text-center py-5">
+        <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+        <h5 class="text-muted">{% trans "No blood requests found" %}</h5>
+        <p class="text-muted">{% trans "Be the first to submit a request or check back later." %}</p>
+        <a href="{% url 'submit_blood_request' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> {% trans "Submit Request" %}
+        </a>
+    </div>
+{% endif %}
+
+<div class="card mt-4 reveal">
+    <div class="card-header">
+        <h6 class="mb-0"><i class="fas fa-info-circle"></i> {% trans "How to Help" %}</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <h6><i class="fas fa-search text-primary"></i> {% trans "If You're a Donor" %}</h6>
+                <ul>
+                    <li>{% trans "Check requests matching your blood group" %}</li>
+                    <li>{% trans "Call the contact number directly" %}</li>
+                    <li>{% trans "Verify details before donating" %}</li>
+                    <li>{% trans "Update your availability status after donation" %}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6><i class="fas fa-heart text-danger"></i> {% trans "If You Need Blood" %}</h6>
+                <ul>
+                    <li>{% trans "Submit a detailed request" %}</li>
+                    <li>{% trans "Mark as Emergency if urgent" %}</li>
+                    <li>{% trans "Keep your phone available" %}</li>
+                    <li>{% trans "Search donor list simultaneously" %}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6><i class="fas fa-share text-success"></i> {% trans "Spread the Word" %}</h6>
+                <ul>
+                    <li>{% trans "Share with family and friends" %}</li>
+                    <li>{% trans "Encourage eligible people to register" %}</li>
+                    <li>{% trans "Help build our donor community" %}</li>
+                    <li>{% trans "Together we save more lives" %}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

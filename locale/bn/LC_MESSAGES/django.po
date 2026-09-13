@@ -1,0 +1,977 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-13 06:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: patiya_redpulse/settings.py:90
+msgid "English"
+msgstr "ইংরেজি"
+
+#: patiya_redpulse/settings.py:91
+msgid "Bangla"
+msgstr "বাংলা"
+
+#: templates/accounts/dashboard.html:4 templates/base.html:66
+msgid "Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+#: templates/accounts/dashboard.html:19 templates/accounts/profile.html:41
+msgid "Gold Life-Saver"
+msgstr "গোল্ড লাইফ-সেভার"
+
+#: templates/accounts/dashboard.html:20 templates/accounts/profile.html:42
+msgid "Silver Life-Saver"
+msgstr "সিলভার লাইফ-সেভার"
+
+#: templates/accounts/dashboard.html:21 templates/accounts/profile.html:43
+msgid "Bronze Life-Saver"
+msgstr "ব্রোঞ্জ লাইফ-সেভার"
+
+#: templates/accounts/dashboard.html:22 templates/accounts/profile.html:44
+msgid "New Donor"
+msgstr "নতুন দাতা"
+
+#: templates/accounts/dashboard.html:25
+#, python-format
+msgid "%(counter)s recorded donation"
+msgid_plural "%(counter)s recorded donations"
+msgstr[0] "%(counter)s টি রক্তদানের রেকর্ড"
+msgstr[1] "%(counter)s টি রক্তদানের রেকর্ড"
+
+#: templates/accounts/dashboard.html:32
+msgid "You are Eligible to Donate!"
+msgstr "আপনি দানের জন্য যোগ্য!"
+
+#: templates/accounts/dashboard.html:36
+msgid "Next Donation In:"
+msgstr "পরবর্তী দানের বাকি সময়:"
+
+#: templates/accounts/dashboard.html:37
+msgid "Days"
+msgstr "দিন"
+
+#: templates/accounts/dashboard.html:47
+msgid "Donation History"
+msgstr "দানের ইতিহাস"
+
+#: templates/accounts/dashboard.html:55
+msgid "Date"
+msgstr "তারিখ"
+
+#: templates/accounts/dashboard.html:56
+msgid "Hospital"
+msgstr "হাসপাতাল"
+
+#: templates/accounts/dashboard.html:57
+msgid "Note"
+msgstr "মন্তব্য"
+
+#: templates/accounts/dashboard.html:72
+msgid "No donation records found."
+msgstr "কোনো দানের রেকর্ড পাওয়া যায়নি।"
+
+#: templates/accounts/donor_list.html:4 templates/base.html:42
+#: templates/blood_requests/home.html:182
+msgid "Find Donors"
+msgstr "দাতা খুঁজুন"
+
+#: templates/accounts/donor_list.html:29
+msgid "Find Blood Donors"
+msgstr "রক্তদাতা খুঁজুন"
+
+#: templates/accounts/donor_list.html:34 templates/accounts/donor_list.html:78
+#: templates/accounts/profile.html:100 templates/accounts/register.html:67
+msgid "Blood Group"
+msgstr "রক্তের গ্রুপ"
+
+#: templates/accounts/donor_list.html:36
+msgid "All Blood Groups"
+msgstr "সকল রক্তের গ্রুপ"
+
+#: templates/accounts/donor_list.html:45 templates/accounts/profile.html:149
+#: templates/accounts/register.html:114
+msgid "District"
+msgstr "জেলা"
+
+#: templates/accounts/donor_list.html:47
+msgid "Enter district"
+msgstr "জেলা লিখুন"
+
+#: templates/accounts/donor_list.html:50
+msgid "Upazila / Union"
+msgstr "উপজেলা / ইউনিয়ন"
+
+#: templates/accounts/donor_list.html:52
+msgid "Enter upazila"
+msgstr "উপজেলা লিখুন"
+
+#: templates/accounts/donor_list.html:57
+msgid "Search"
+msgstr "অনুসন্ধান"
+
+#: templates/accounts/donor_list.html:66
+msgid "Available Donors"
+msgstr "উপলব্ধ দাতা"
+
+#: templates/accounts/donor_list.html:68 templates/accounts/register.html:164
+msgid "Register as Donor"
+msgstr "দাতা হিসেবে নিবন্ধন করুন"
+
+#: templates/accounts/donor_list.html:77
+msgid "Name"
+msgstr "নাম"
+
+#: templates/accounts/donor_list.html:79 templates/accounts/register.html:111
+msgid "Location"
+msgstr "অবস্থান"
+
+#: templates/accounts/donor_list.html:80
+msgid "Status & Countdown"
+msgstr "অবস্থা ও কাউন্টডাউন"
+
+#: templates/accounts/donor_list.html:81
+msgid "Contact Options"
+msgstr "যোগাযোগের উপায়"
+
+#: templates/accounts/donor_list.html:91
+msgid "Gold"
+msgstr "গোল্ড"
+
+#: templates/accounts/donor_list.html:92
+msgid "Silver"
+msgstr "সিলভার"
+
+#: templates/accounts/donor_list.html:93
+msgid "Bronze"
+msgstr "ব্রোঞ্জ"
+
+#: templates/accounts/donor_list.html:94
+msgid "New"
+msgstr "নতুন"
+
+#: templates/accounts/donor_list.html:104 templates/accounts/profile.html:37
+msgid "years old"
+msgstr "বছর বয়সী"
+
+#: templates/accounts/donor_list.html:117 templates/accounts/profile.html:59
+msgid "Eligible to Donate"
+msgstr "দানের জন্য যোগ্য"
+
+#: templates/accounts/donor_list.html:119
+msgid "Ready to help!"
+msgstr "সাহায্য করতে প্রস্তুত!"
+
+#: templates/accounts/donor_list.html:122
+msgid "Not Eligible"
+msgstr "যোগ্য নয়"
+
+#: templates/accounts/donor_list.html:125
+msgid "Available in:"
+msgstr "উপলব্ধ হবে:"
+
+#: templates/accounts/donor_list.html:125
+msgid "days"
+msgstr "দিন"
+
+#: templates/accounts/donor_list.html:138
+#: templates/blood_requests/requests_list.html:56
+msgid "Copied"
+msgstr "কপি হয়েছে"
+
+#: templates/accounts/donor_list.html:139
+msgid "Copy Number"
+msgstr "নম্বর কপি করুন"
+
+#: templates/accounts/donor_list.html:151
+msgid "No donors found"
+msgstr "কোনো দাতা পাওয়া যায়নি"
+
+#: templates/accounts/donor_list.html:152
+msgid "Try adjusting your search criteria or check back later."
+msgstr "আপনার অনুসন্ধানের মানদণ্ড পরিবর্তন করুন অথবা পরে আবার দেখুন।"
+
+#: templates/accounts/donor_list.html:154
+msgid "Register as a Donor"
+msgstr "দাতা হিসেবে নিবন্ধন করুন"
+
+#: templates/accounts/donor_list.html:162
+msgid "Important Notes"
+msgstr "গুরুত্বপূর্ণ তথ্য"
+
+#: templates/accounts/donor_list.html:166
+msgid "Eligibility:"
+msgstr "যোগ্যতা:"
+
+#: templates/accounts/donor_list.html:166
+msgid "Donors must wait 90 days (men) or 120 days (women) between donations."
+msgstr "দাতাদের দুটি দানের মধ্যে ৯০ দিন (পুরুষ) বা ১২০ দিন (নারী) অপেক্ষা করতে হবে।"
+
+#: templates/accounts/donor_list.html:167
+msgid "Countdown:"
+msgstr "কাউন্টডাউন:"
+
+#: templates/accounts/donor_list.html:167
+msgid "The days shown indicate when the donor will be ready for the next donation."
+msgstr "প্রদর্শিত দিনগুলো দাতার পরবর্তী দানের জন্য প্রস্তুত হওয়ার সময় নির্দেশ করে।"
+
+#: templates/accounts/donor_list.html:168
+msgid "WhatsApp:"
+msgstr "হোয়াটসঅ্যাপ:"
+
+#: templates/accounts/donor_list.html:168
+msgid "Use the WhatsApp button for quick communication if the donor doesn't pick up the call."
+msgstr "দাতা কল না ধরলে দ্রুত যোগাযোগের জন্য হোয়াটসঅ্যাপ বাটন ব্যবহার করুন।"
+
+#: templates/accounts/donor_list.html:169
+msgid "Compatibility:"
+msgstr "সামঞ্জস্য:"
+
+#: templates/accounts/donor_list.html:169
+msgid "Not sure which group can donate to whom? Check the"
+msgstr "কোন গ্রুপ কাকে দান করতে পারে জানেন না? দেখুন"
+
+#: templates/accounts/donor_list.html:169
+#: templates/blood_requests/home.html:218
+msgid "compatibility checker"
+msgstr "সামঞ্জস্য যাচাইকারী"
+
+#: templates/accounts/login.html:4 templates/accounts/login.html:11
+#: templates/accounts/login.html:42 templates/base.html:86
+msgid "Login"
+msgstr "লগ ইন"
+
+#: templates/accounts/login.html:18 templates/accounts/register.html:30
+msgid "Username"
+msgstr "ইউজারনেম"
+
+#: templates/accounts/login.html:19
+msgid "Enter your username"
+msgstr "আপনার ইউজারনেম লিখুন"
+
+#: templates/accounts/login.html:23 templates/accounts/register.html:38
+msgid "Password"
+msgstr "পাসওয়ার্ড"
+
+#: templates/accounts/login.html:24
+msgid "Enter your password"
+msgstr "আপনার পাসওয়ার্ড লিখুন"
+
+#: templates/accounts/login.html:29
+msgid "Forgot Password?"
+msgstr "পাসওয়ার্ড ভুলে গেছেন?"
+
+#: templates/accounts/login.html:36
+msgid "Invalid username or password. Please try again."
+msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড। আবার চেষ্টা করুন।"
+
+#: templates/accounts/login.html:50
+msgid "Don't have an account?"
+msgstr "অ্যাকাউন্ট নেই?"
+
+#: templates/accounts/login.html:50
+msgid "Register here"
+msgstr "এখানে নিবন্ধন করুন"
+
+#: templates/accounts/password_reset.html:3
+#: templates/accounts/password_reset.html:9
+msgid "Reset Password"
+msgstr "পাসওয়ার্ড রিসেট করুন"
+
+#: templates/accounts/password_reset.html:12
+msgid "Enter your email address below, and we'll email instructions for setting a new one."
+msgstr "নিচে আপনার ইমেইল ঠিকানা দিন, আমরা নতুন পাসওয়ার্ড সেট করার নির্দেশনা ইমেইল করব।"
+
+#: templates/accounts/password_reset.html:19
+msgid "Send Email"
+msgstr "ইমেইল পাঠান"
+
+#: templates/accounts/password_reset_complete.html:3
+#: templates/accounts/password_reset_complete.html:8
+msgid "Password Reset Complete"
+msgstr "পাসওয়ার্ড রিসেট সম্পন্ন"
+
+#: templates/accounts/password_reset_complete.html:9
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr "আপনার পাসওয়ার্ড সেট করা হয়েছে। এখন আপনি লগ ইন করতে পারেন।"
+
+#: templates/accounts/password_reset_complete.html:10
+msgid "Log In Here"
+msgstr "এখানে লগ ইন করুন"
+
+#: templates/accounts/password_reset_confirm.html:3
+#: templates/accounts/password_reset_confirm.html:9
+msgid "Set New Password"
+msgstr "নতুন পাসওয়ার্ড সেট করুন"
+
+#: templates/accounts/password_reset_confirm.html:16
+msgid "Change Password"
+msgstr "পাসওয়ার্ড পরিবর্তন করুন"
+
+#: templates/accounts/password_reset_done.html:3
+msgid "Email Sent"
+msgstr "ইমেইল পাঠানো হয়েছে"
+
+#: templates/accounts/password_reset_done.html:8
+msgid "Email Sent!"
+msgstr "ইমেইল পাঠানো হয়েছে!"
+
+#: templates/accounts/password_reset_done.html:9
+msgid "We've emailed you instructions for setting your password. If you don't receive it, please check your spam folder."
+msgstr "আমরা আপনার পাসওয়ার্ড সেট করার নির্দেশনা ইমেইল করেছি। না পেলে স্প্যাম ফোল্ডার দেখুন।"
+
+#: templates/accounts/profile.html:4 templates/base.html:72
+msgid "Profile"
+msgstr "প্রোফাইল"
+
+#: templates/accounts/profile.html:20
+msgid "Profile Summary"
+msgstr "প্রোফাইল সারসংক্ষেপ"
+
+#: templates/accounts/profile.html:47
+msgid "Location:"
+msgstr "অবস্থান:"
+
+#: templates/accounts/profile.html:48
+msgid "Mobile:"
+msgstr "মোবাইল:"
+
+#: templates/accounts/profile.html:50
+msgid "Email:"
+msgstr "ইমেইল:"
+
+#: templates/accounts/profile.html:53
+msgid "Last Donation:"
+msgstr "সর্বশেষ দান:"
+
+#: templates/accounts/profile.html:54
+msgid "Days Since Last Donation:"
+msgstr "শেষ দানের পর দিন সংখ্যা:"
+
+#: templates/accounts/profile.html:56
+msgid "Eligibility Status:"
+msgstr "যোগ্যতার অবস্থা:"
+
+#: templates/accounts/profile.html:63
+msgid "days remaining"
+msgstr "দিন বাকি"
+
+#: templates/accounts/profile.html:68
+msgid "Availability Status:"
+msgstr "উপলব্ধতার অবস্থা:"
+
+#: templates/accounts/profile.html:70
+msgid "Available"
+msgstr "উপলব্ধ"
+
+#: templates/accounts/profile.html:72
+msgid "Not Available"
+msgstr "উপলব্ধ নয়"
+
+#: templates/accounts/profile.html:82
+msgid "Edit Profile"
+msgstr "প্রোফাইল সম্পাদনা করুন"
+
+#: templates/accounts/profile.html:91 templates/accounts/register.html:58
+msgid "Full Name"
+msgstr "পূর্ণ নাম"
+
+#: templates/accounts/profile.html:112 templates/accounts/register.html:75
+msgid "Gender"
+msgstr "লিঙ্গ"
+
+#: templates/accounts/profile.html:121 templates/accounts/register.html:84
+msgid "Age"
+msgstr "বয়স"
+
+#: templates/accounts/profile.html:131 templates/accounts/register.html:92
+msgid "Mobile Number"
+msgstr "মোবাইল নম্বর"
+
+#: templates/accounts/profile.html:139 templates/accounts/register.html:100
+msgid "Email (Optional)"
+msgstr "ইমেইল (ঐচ্ছিক)"
+
+#: templates/accounts/profile.html:158 templates/accounts/register.html:122
+msgid "Upazila"
+msgstr "উপজেলা"
+
+#: templates/accounts/profile.html:168 templates/accounts/register.html:134
+msgid "Last Blood Donation Date"
+msgstr "সর্বশেষ রক্তদানের তারিখ"
+
+#: templates/accounts/profile.html:173
+msgid "This affects your eligibility status (90 days for men, 120 for women)"
+msgstr "এটি আপনার যোগ্যতার অবস্থাকে প্রভাবিত করে (পুরুষদের জন্য ৯০ দিন, নারীদের জন্য ১২০ দিন)"
+
+#: templates/accounts/profile.html:177 templates/accounts/register.html:143
+msgid "Availability Status"
+msgstr "উপলব্ধতার অবস্থা"
+
+#: templates/accounts/profile.html:182
+msgid "Set to \"Not Available\" if you cannot donate currently"
+msgstr "এখন দান করতে না পারলে \"উপলব্ধ নয়\" নির্বাচন করুন"
+
+#: templates/accounts/profile.html:187
+msgid "Update Profile"
+msgstr "প্রোফাইল আপডেট করুন"
+
+#: templates/accounts/profile.html:190
+msgid "Back to Donor List"
+msgstr "দাতা তালিকায় ফিরে যান"
+
+#: templates/accounts/register.html:4 templates/accounts/register.html:19
+msgid "Donor Registration"
+msgstr "দাতা নিবন্ধন"
+
+#: templates/accounts/register.html:27
+msgid "Account Information"
+msgstr "অ্যাকাউন্ট তথ্য"
+
+#: templates/accounts/register.html:46
+msgid "Confirm Password"
+msgstr "পাসওয়ার্ড নিশ্চিত করুন"
+
+#: templates/accounts/register.html:55
+msgid "Personal Information"
+msgstr "ব্যক্তিগত তথ্য"
+
+#: templates/accounts/register.html:84
+msgid "Must be 18+"
+msgstr "১৮ বা তার বেশি হতে হবে"
+
+#: templates/accounts/register.html:131
+msgid "Donation Information"
+msgstr "দানের তথ্য"
+
+#: templates/accounts/register.html:139
+msgid "Used to calculate eligibility (90 days for men, 120 for women)"
+msgstr "যোগ্যতা হিসাব করতে ব্যবহৃত হয় (পুরুষদের জন্য ৯০ দিন, নারীদের জন্য ১২০ দিন)"
+
+#: templates/accounts/register.html:153
+msgid "Important Information"
+msgstr "গুরুত্বপূর্ণ তথ্য"
+
+#: templates/accounts/register.html:155
+msgid "Your phone number will be visible to blood seekers"
+msgstr "আপনার ফোন নম্বর রক্তপ্রার্থীদের কাছে দৃশ্যমান হবে"
+
+#: templates/accounts/register.html:156
+msgid "Eligibility is automatically calculated based on your gender-specific donation gap"
+msgstr "লিঙ্গ অনুযায়ী নির্ধারিত বিরতির ভিত্তিতে যোগ্যতা স্বয়ংক্রিয়ভাবে হিসাব করা হয়"
+
+#: templates/accounts/register.html:157
+msgid "You can update your availability status anytime"
+msgstr "আপনি যেকোনো সময় উপলব্ধতার অবস্থা আপডেট করতে পারেন"
+
+#: templates/accounts/register.html:158
+msgid "Registration is free and for humanitarian purposes only"
+msgstr "নিবন্ধন সম্পূর্ণ বিনামূল্যে এবং শুধুমাত্র মানবিক উদ্দেশ্যে"
+
+#: templates/accounts/register.html:172
+msgid "Already registered?"
+msgstr "আগে থেকেই নিবন্ধিত?"
+
+#: templates/accounts/register.html:172
+msgid "Login here"
+msgstr "এখানে লগ ইন করুন"
+
+#: templates/base.html:8
+msgid "Patiya RedPulse connects blood seekers with eligible donors directly, in Patiya, Chattogram — no middleman, no waiting."
+msgstr "পটিয়া রেড-পালস চট্টগ্রামের পটিয়ায় রক্তপ্রার্থীদের সরাসরি যোগ্য দাতাদের সাথে সংযুক্ত করে — কোনো মধ্যস্থতাকারী নেই, অপেক্ষা নেই।"
+
+#: templates/base.html:39
+msgid "Home"
+msgstr "হোম"
+
+#: templates/base.html:45
+msgid "Request Blood"
+msgstr "রক্ত চান"
+
+#: templates/base.html:48 templates/blood_requests/home.html:58
+#: templates/blood_requests/requests_list.html:4
+#: templates/blood_requests/requests_list.html:8
+msgid "Blood Requests"
+msgstr "রক্তের অনুরোধ"
+
+#: templates/base.html:51
+msgid "Compatibility"
+msgstr "সামঞ্জস্য"
+
+#: templates/base.html:59
+msgid "Admin Panel"
+msgstr "অ্যাডমিন প্যানেল"
+
+#: templates/base.html:80
+msgid "Logout"
+msgstr "লগ আউট"
+
+#: templates/base.html:89
+msgid "Register"
+msgstr "নিবন্ধন"
+
+#: templates/base.html:117
+msgid "Toggle dark mode"
+msgstr "ডার্ক মোড পরিবর্তন করুন"
+
+#: templates/base.html:146
+msgid "Submit an emergency blood request"
+msgstr "একটি জরুরি রক্তের অনুরোধ জমা দিন"
+
+#: templates/base.html:147
+msgid "Emergency SOS"
+msgstr "জরুরি SOS"
+
+#: templates/base.html:158
+msgid "A humanitarian blood donation platform."
+msgstr "একটি মানবিক রক্তদান প্ল্যাটফর্ম।"
+
+#: templates/base.html:159
+msgid "Patiya, Chattogram, Bangladesh."
+msgstr "পটিয়া, চট্টগ্রাম, বাংলাদেশ।"
+
+#: templates/base.html:161
+msgid "Saving lives through direct connection."
+msgstr "সরাসরি সংযোগের মাধ্যমে জীবন বাঁচানো।"
+
+#: templates/base.html:163
+msgid "Developed by"
+msgstr "নির্মাণে"
+
+#: templates/blood_requests/compatibility.html:4
+#: templates/blood_requests/compatibility.html:9
+msgid "Blood Compatibility Checker"
+msgstr "রক্তের সামঞ্জস্য যাচাইকারী"
+
+#: templates/blood_requests/compatibility.html:13
+msgid "Tap a blood group to instantly see who it can donate to and who it can safely receive from. This is a general ABO/Rh reference only — a hospital or blood bank must always confirm compatibility with a cross-match test before any transfusion."
+msgstr "কোনো রক্তের গ্রুপে ট্যাপ করে সাথে সাথে দেখুন এটি কাকে দিতে ও কার থেকে নিরাপদে নিতে পারে। এটি শুধুমাত্র সাধারণ ABO/Rh নির্দেশিকা — রক্ত সঞ্চালনের আগে হাসপাতাল বা ব্লাড ব্যাংককে অবশ্যই ক্রস-ম্যাচ টেস্টের মাধ্যমে সামঞ্জস্য নিশ্চিত করতে হবে।"
+
+#: templates/blood_requests/compatibility.html:25
+msgid "Can donate to"
+msgstr "যাদের দান করতে পারবে"
+
+#: templates/blood_requests/compatibility.html:31
+msgid "Can receive from"
+msgstr "যাদের থেকে গ্রহণ করতে পারবে"
+
+#: templates/blood_requests/compatibility.html:38
+msgid "Select a blood group above to see its matches."
+msgstr "মিল দেখতে উপরে একটি রক্তের গ্রুপ নির্বাচন করুন।"
+
+#: templates/blood_requests/compatibility.html:47
+msgid "O− : Universal Donor"
+msgstr "O− : সর্বজনীন দাতা"
+
+#: templates/blood_requests/compatibility.html:48
+msgid "O− has no A, B, or Rh antigens, so it can be given to patients of any blood group in an emergency when there's no time to match."
+msgstr "O− তে A, B বা Rh অ্যান্টিজেন থাকে না, তাই মিলানোর সময় না থাকা জরুরি অবস্থায় এটি যেকোনো গ্রুপের রোগীকে দেওয়া যায়।"
+
+#: templates/blood_requests/compatibility.html:55
+msgid "AB+ : Universal Recipient"
+msgstr "AB+ : সর্বজনীন গ্রহীতা"
+
+#: templates/blood_requests/compatibility.html:56
+msgid "AB+ patients already carry A, B, and Rh antigens, so they can safely receive red cells from any blood group."
+msgstr "AB+ রোগীদের শরীরে ইতিমধ্যে A, B এবং Rh অ্যান্টিজেন থাকে, তাই তারা যেকোনো গ্রুপের রক্ত নিরাপদে গ্রহণ করতে পারেন।"
+
+#: templates/blood_requests/home.html:9
+msgid "Patiya, Chattogram"
+msgstr "পটিয়া, চট্টগ্রাম"
+
+#: templates/blood_requests/home.html:14
+msgid "A direct line between blood seekers and eligible donors — no middleman, no waiting room. Built for the moments that can't wait."
+msgstr "রক্তপ্রার্থী ও যোগ্য দাতার মধ্যে সরাসরি যোগাযোগ — কোনো মধ্যস্থতাকারী নেই, অপেক্ষার প্রয়োজন নেই। যে মুহূর্তগুলো অপেক্ষা করতে পারে না, তার জন্যই তৈরি।"
+
+#: templates/blood_requests/home.html:18
+msgid "Find Donors Now"
+msgstr "এখনই দাতা খুঁজুন"
+
+#: templates/blood_requests/home.html:21
+#: templates/blood_requests/requests_list.html:71
+#: templates/blood_requests/submit_request.html:124
+msgid "Submit Request"
+msgstr "অনুরোধ জমা দিন"
+
+#: templates/blood_requests/home.html:36
+msgid "Total Donors"
+msgstr "মোট দাতা"
+
+#: templates/blood_requests/home.html:47
+msgid "Available Now"
+msgstr "এখন উপলব্ধ"
+
+#: templates/blood_requests/home.html:69
+msgid "Emergency"
+msgstr "জরুরি"
+
+#: templates/blood_requests/home.html:79
+msgid "Available Donors by Blood Group"
+msgstr "রক্তের গ্রুপ অনুযায়ী উপলব্ধ দাতা"
+
+#: templates/blood_requests/home.html:93
+msgid "Live count of donors who have marked themselves Available right now."
+msgstr "যারা এখন নিজেদের \"উপলব্ধ\" চিহ্নিত করেছেন তাদের সরাসরি সংখ্যা।"
+
+#: templates/blood_requests/home.html:100
+msgid "How It Works"
+msgstr "যেভাবে কাজ করে"
+
+#: templates/blood_requests/home.html:110
+msgid "Search Donors"
+msgstr "দাতা খুঁজুন"
+
+#: templates/blood_requests/home.html:111
+msgid "Find donors by blood group, district, or upazila"
+msgstr "রক্তের গ্রুপ, জেলা বা উপজেলা অনুযায়ী দাতা খুঁজুন"
+
+#: templates/blood_requests/home.html:119
+msgid "Call Directly"
+msgstr "সরাসরি কল করুন"
+
+#: templates/blood_requests/home.html:120
+msgid "One-click calling to connect instantly"
+msgstr "তাৎক্ষণিক সংযোগের জন্য এক-ক্লিক কলিং"
+
+#: templates/blood_requests/home.html:130
+msgid "Check Eligibility"
+msgstr "যোগ্যতা যাচাই"
+
+#: templates/blood_requests/home.html:131
+msgid "Automatic eligibility countdown (90 days for men, 120 for women)"
+msgstr "স্বয়ংক্রিয় যোগ্যতার কাউন্টডাউন (পুরুষদের জন্য ৯০ দিন, নারীদের জন্য ১২০ দিন)"
+
+#: templates/blood_requests/home.html:139
+msgid "Save Lives"
+msgstr "জীবন বাঁচান"
+
+#: templates/blood_requests/home.html:140
+msgid "Direct connection saves precious time"
+msgstr "সরাসরি যোগাযোগ মূল্যবান সময় বাঁচায়"
+
+#: templates/blood_requests/home.html:151
+msgid "Emergency Notice"
+msgstr "জরুরি নোটিশ"
+
+#: templates/blood_requests/home.html:155
+msgid "Time is Critical"
+msgstr "সময় গুরুত্বপূর্ণ"
+
+#: templates/blood_requests/home.html:156
+msgid "For life-threatening emergencies, contact the nearest hospital immediately while using this platform."
+msgstr "জীবন-হুমকিস্বরূপ জরুরি অবস্থায় এই প্ল্যাটফর্ম ব্যবহারের পাশাপাশি অবিলম্বে নিকটস্থ হাসপাতালে যোগাযোগ করুন।"
+
+#: templates/blood_requests/home.html:159
+msgid "Safety First"
+msgstr "নিরাপত্তা প্রথম"
+
+#: templates/blood_requests/home.html:160
+msgid "Always verify donor identity and blood compatibility before transfusion."
+msgstr "রক্ত সঞ্চালনের আগে সর্বদা দাতার পরিচয় এবং রক্তের সামঞ্জস্য যাচাই করুন।"
+
+#: templates/blood_requests/home.html:171
+msgid "For Blood Seekers"
+msgstr "রক্তপ্রার্থীদের জন্য"
+
+#: templates/blood_requests/home.html:174
+msgid "Need blood urgently? Our platform connects you directly with eligible donors in your area."
+msgstr "জরুরি রক্তের প্রয়োজন? আমাদের প্ল্যাটফর্ম আপনাকে সরাসরি আপনার এলাকার যোগ্য দাতাদের সাথে সংযুক্ত করে।"
+
+#: templates/blood_requests/home.html:176
+msgid "Search by blood group and location"
+msgstr "রক্তের গ্রুপ ও অবস্থান অনুযায়ী খুঁজুন"
+
+#: templates/blood_requests/home.html:177
+msgid "See real-time eligibility status"
+msgstr "রিয়েল-টাইম যোগ্যতার অবস্থা দেখুন"
+
+#: templates/blood_requests/home.html:178
+msgid "One-click calling or WhatsApp"
+msgstr "এক-ক্লিকে কল বা হোয়াটসঅ্যাপ"
+
+#: templates/blood_requests/home.html:179
+msgid "24/7 access"
+msgstr "২৪/৭ প্রবেশাধিকার"
+
+#: templates/blood_requests/home.html:190
+msgid "For Donors"
+msgstr "দাতাদের জন্য"
+
+#: templates/blood_requests/home.html:193
+msgid "Register as a donor and help save lives in your community. Your contribution matters!"
+msgstr "দাতা হিসেবে নিবন্ধন করুন এবং আপনার সম্প্রদায়ে জীবন বাঁচাতে সাহায্য করুন। আপনার অবদান গুরুত্বপূর্ণ!"
+
+#: templates/blood_requests/home.html:195
+msgid "Simple registration process"
+msgstr "সহজ নিবন্ধন প্রক্রিয়া"
+
+#: templates/blood_requests/home.html:196
+msgid "Automatic eligibility tracking"
+msgstr "স্বয়ংক্রিয় যোগ্যতা ট্র্যাকিং"
+
+#: templates/blood_requests/home.html:197
+msgid "Control your availability status"
+msgstr "নিজের উপলব্ধতার অবস্থা নিয়ন্ত্রণ করুন"
+
+#: templates/blood_requests/home.html:198
+msgid "Earn Life-Saver recognition"
+msgstr "লাইফ-সেভার স্বীকৃতি অর্জন করুন"
+
+#: templates/blood_requests/home.html:201
+msgid "Register Now"
+msgstr "এখনই নিবন্ধন করুন"
+
+#: templates/blood_requests/home.html:210
+msgid "Important Guidelines"
+msgstr "গুরুত্বপূর্ণ নির্দেশিকা"
+
+#: templates/blood_requests/home.html:215
+msgid "Donor Verification"
+msgstr "দাতা যাচাইকরণ"
+
+#: templates/blood_requests/home.html:217
+msgid "Verify donor identity"
+msgstr "দাতার পরিচয় যাচাই করুন"
+
+#: templates/blood_requests/home.html:218
+msgid "Check blood compatibility"
+msgstr "রক্তের সামঞ্জস্য যাচাই করুন"
+
+#: templates/blood_requests/home.html:218
+msgid "use our"
+msgstr "ব্যবহার করুন"
+
+#: templates/blood_requests/home.html:219
+msgid "Confirm donation date"
+msgstr "দানের তারিখ নিশ্চিত করুন"
+
+#: templates/blood_requests/home.html:223
+msgid "Eligibility Rules"
+msgstr "যোগ্যতার নিয়ম"
+
+#: templates/blood_requests/home.html:225
+msgid "90 days between donations for men, 120 for women"
+msgstr "পুরুষদের জন্য ৯০ দিন এবং নারীদের জন্য ১২০ দিন বিরতি"
+
+#: templates/blood_requests/home.html:226
+msgid "18+ years old"
+msgstr "১৮ বছরের বেশি বয়সী"
+
+#: templates/blood_requests/home.html:227
+msgid "Good health condition"
+msgstr "সুস্থ স্বাস্থ্যের অবস্থা"
+
+#: templates/blood_requests/home.html:231
+msgid "Emergency Contact"
+msgstr "জরুরি যোগাযোগ"
+
+#: templates/blood_requests/home.html:233
+msgid "Hospital direct line"
+msgstr "হাসপাতালের সরাসরি লাইন"
+
+#: templates/blood_requests/home.html:234
+msgid "Doctor consultation"
+msgstr "ডাক্তারের পরামর্শ"
+
+#: templates/blood_requests/home.html:235
+msgid "Medical supervision"
+msgstr "চিকিৎসা তত্ত্বাবধান"
+
+#: templates/blood_requests/requests_list.html:10
+msgid "Submit New Request"
+msgstr "নতুন অনুরোধ জমা দিন"
+
+#: templates/blood_requests/requests_list.html:21
+msgid "EMERGENCY"
+msgstr "জরুরি"
+
+#: templates/blood_requests/requests_list.html:31
+msgid "Bags needed:"
+msgstr "প্রয়োজনীয় ব্যাগ:"
+
+#: templates/blood_requests/requests_list.html:32
+msgid "Condition:"
+msgstr "অবস্থা:"
+
+#: templates/blood_requests/requests_list.html:33
+msgid "Hospital:"
+msgstr "হাসপাতাল:"
+
+#: templates/blood_requests/requests_list.html:34
+msgid "Required by:"
+msgstr "প্রয়োজন:"
+
+#: templates/blood_requests/requests_list.html:35
+msgid "Contact:"
+msgstr "যোগাযোগ:"
+
+#: templates/blood_requests/requests_list.html:40
+msgid "Additional Info:"
+msgstr "অতিরিক্ত তথ্য:"
+
+#: templates/blood_requests/requests_list.html:46
+msgid "ago"
+msgstr "আগে"
+
+#: templates/blood_requests/requests_list.html:50
+msgid "Call"
+msgstr "কল করুন"
+
+#: templates/blood_requests/requests_list.html:57
+msgid "Copy"
+msgstr "কপি করুন"
+
+#: templates/blood_requests/requests_list.html:68
+msgid "No blood requests found"
+msgstr "কোনো রক্তের অনুরোধ পাওয়া যায়নি"
+
+#: templates/blood_requests/requests_list.html:69
+msgid "Be the first to submit a request or check back later."
+msgstr "প্রথম অনুরোধ জমা দিন অথবা পরে আবার দেখুন।"
+
+#: templates/blood_requests/requests_list.html:78
+msgid "How to Help"
+msgstr "কীভাবে সাহায্য করবেন"
+
+#: templates/blood_requests/requests_list.html:83
+msgid "If You're a Donor"
+msgstr "যদি আপনি একজন দাতা হন"
+
+#: templates/blood_requests/requests_list.html:85
+msgid "Check requests matching your blood group"
+msgstr "আপনার রক্তের গ্রুপের সাথে মিলে যাওয়া অনুরোধগুলো দেখুন"
+
+#: templates/blood_requests/requests_list.html:86
+msgid "Call the contact number directly"
+msgstr "যোগাযোগের নম্বরে সরাসরি কল করুন"
+
+#: templates/blood_requests/requests_list.html:87
+msgid "Verify details before donating"
+msgstr "দান করার আগে বিবরণ যাচাই করুন"
+
+#: templates/blood_requests/requests_list.html:88
+msgid "Update your availability status after donation"
+msgstr "দানের পর আপনার উপলব্ধতার অবস্থা আপডেট করুন"
+
+#: templates/blood_requests/requests_list.html:92
+msgid "If You Need Blood"
+msgstr "যদি আপনার রক্ত প্রয়োজন হয়"
+
+#: templates/blood_requests/requests_list.html:94
+msgid "Submit a detailed request"
+msgstr "বিস্তারিত অনুরোধ জমা দিন"
+
+#: templates/blood_requests/requests_list.html:95
+msgid "Mark as Emergency if urgent"
+msgstr "জরুরি হলে \"জরুরি\" হিসেবে চিহ্নিত করুন"
+
+#: templates/blood_requests/requests_list.html:96
+msgid "Keep your phone available"
+msgstr "আপনার ফোন সচল রাখুন"
+
+#: templates/blood_requests/requests_list.html:97
+msgid "Search donor list simultaneously"
+msgstr "একই সাথে দাতা তালিকা অনুসন্ধান করুন"
+
+#: templates/blood_requests/requests_list.html:101
+msgid "Spread the Word"
+msgstr "কথাটি ছড়িয়ে দিন"
+
+#: templates/blood_requests/requests_list.html:103
+msgid "Share with family and friends"
+msgstr "পরিবার ও বন্ধুদের সাথে শেয়ার করুন"
+
+#: templates/blood_requests/requests_list.html:104
+msgid "Encourage eligible people to register"
+msgstr "যোগ্য ব্যক্তিদের নিবন্ধন করতে উৎসাহিত করুন"
+
+#: templates/blood_requests/requests_list.html:105
+msgid "Help build our donor community"
+msgstr "আমাদের দাতা সম্প্রদায় গড়তে সাহায্য করুন"
+
+#: templates/blood_requests/requests_list.html:106
+msgid "Together we save more lives"
+msgstr "একসাথে আমরা আরও জীবন বাঁচাই"
+
+#: templates/blood_requests/submit_request.html:4
+#: templates/blood_requests/submit_request.html:11
+msgid "Submit Blood Request"
+msgstr "রক্তের অনুরোধ জমা দিন"
+
+#: templates/blood_requests/submit_request.html:20
+msgid "Patient Name"
+msgstr "রোগীর নাম"
+
+#: templates/blood_requests/submit_request.html:29
+msgid "Required Blood Group"
+msgstr "প্রয়োজনীয় রক্তের গ্রুপ"
+
+#: templates/blood_requests/submit_request.html:41
+msgid "Number of Bags"
+msgstr "ব্যাগের সংখ্যা"
+
+#: templates/blood_requests/submit_request.html:50
+msgid "Patient Condition"
+msgstr "রোগীর অবস্থা"
+
+#: templates/blood_requests/submit_request.html:60
+msgid "Emergency Level"
+msgstr "জরুরি মাত্রা"
+
+#: templates/blood_requests/submit_request.html:68
+msgid "Hospital Name"
+msgstr "হাসপাতালের নাম"
+
+#: templates/blood_requests/submit_request.html:76
+msgid "Hospital Address"
+msgstr "হাসপাতালের ঠিকানা"
+
+#: templates/blood_requests/submit_request.html:86
+msgid "Required Date"
+msgstr "প্রয়োজনীয় তারিখ"
+
+#: templates/blood_requests/submit_request.html:95
+msgid "Contact Phone"
+msgstr "যোগাযোগের ফোন"
+
+#: templates/blood_requests/submit_request.html:105
+msgid "Additional Information (Optional)"
+msgstr "অতিরিক্ত তথ্য (ঐচ্ছিক)"
+
+#: templates/blood_requests/submit_request.html:113
+msgid "Important Notice"
+msgstr "গুরুত্বপূর্ণ নোটিশ"
+
+#: templates/blood_requests/submit_request.html:115
+msgid "This request will be visible to the public"
+msgstr "এই অনুরোধটি জনসাধারণের কাছে দৃশ্যমান হবে"
+
+#: templates/blood_requests/submit_request.html:116
+msgid "Emergency requests will be highlighted in red"
+msgstr "জরুরি অনুরোধগুলো লাল রঙে চিহ্নিত করা হবে"
+
+#: templates/blood_requests/submit_request.html:117
+msgid "Please provide accurate information"
+msgstr "সঠিক তথ্য প্রদান করুন"
+
+#: templates/blood_requests/submit_request.html:118
+msgid "For immediate life-threatening emergencies, contact hospital directly"
+msgstr "জীবন-হুমকিস্বরূপ তাৎক্ষণিক জরুরি অবস্থায় সরাসরি হাসপাতালে যোগাযোগ করুন"
+
+#: templates/blood_requests/submit_request.html:127
+msgid "View Requests"
+msgstr "অনুরোধ দেখুন"

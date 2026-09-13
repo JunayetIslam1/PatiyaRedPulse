@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4><i class="fas fa-users"></i> Manage Donors</h4>
+    <a href="{% url 'admin_dashboard' %}" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        {% if donors %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Blood Group</th>
+                            <th>Location</th>
+                            <th>Mobile</th>
+                            <th>Last Donation</th>
+                            <th>Eligibility</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for donor in donors %}
+                            <tr>
+                                <td>{{ donor.id }}</td>
+                                <td>
+                                    <strong>{{ donor.full_name }}</strong><br>
+                                    <small class="text-muted">{{ donor.gender }}, {{ donor.age }} years</small>
+                                </td>
+                                <td><span class="blood-group-badge">{{ donor.blood_group }}</span></td>
+                                <td>
+                                    {{ donor.district }}<br>
+                                    <small class="text-muted">{{ donor.upazila }}</small>
+                                </td>
+                                <td>{{ donor.mobile_number }}</td>
+                                <td>
+                                    {{ donor.last_donation_date|date:"M d, Y" }}<br>
+                                    <small class="text-muted">{{ donor.days_since_last_donation }} days ago</small>
+                                </td>
+                                <td>
+                                    {% if donor.is_eligible %}
+                                        <span class="eligible-badge">
+                                            <i class="fas fa-check-circle"></i> Eligible
+                                        </span>
+                                    {% else %}
+                                        <span class="not-eligible-badge">
+                                            <i class="fas fa-clock"></i> {{ donor.eligibility_status }}
+                                        </span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if donor.is_active %}
+                                        <span class="badge bg-success">Active</span>
+                                    {% else %}
+                                        <span class="badge bg-danger">Blocked</span>
+                                    {% endif %}
+                                    <br>
+                                    {% if donor.availability_status == 'Available' %}
+                                        <small class="badge bg-success">Available</small>
+                                    {% else %}
+                                        <small class="badge bg-warning">Not Available</small>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="{% url 'toggle_donor_status' donor.id %}" 
+                                       class="btn btn-sm {% if donor.is_active %}btn-warning{% else %}btn-success{% endif %}"
+                                       onclick="return confirm('Are you sure you want to {% if donor.is_active %}block{% else %}unblock{% endif %} this donor?')">
+                                        {% if donor.is_active %}
+                                            <i class="fas fa-ban"></i> Block
+                                        {% else %}
+                                            <i class="fas fa-check"></i> Unblock
+                                        {% endif %}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <i class="fas fa-users fa-3x text-muted mb-3"></i>
+                <h5 class="text-muted">No donors found</h5>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

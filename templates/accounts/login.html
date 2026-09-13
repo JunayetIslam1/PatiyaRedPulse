@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Login" %} — Patiya RedPulse{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card reveal">
+            <div class="card-header text-center">
+                <h4 class="mb-0"><i class="fas fa-sign-in-alt"></i> {% trans "Login" %}</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label">{% trans "Username" %}</label>
+                        <input type="text" name="username" class="form-control" placeholder="{% trans 'Enter your username' %}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">{% trans "Password" %}</label>
+                        <input type="password" name="password" class="form-control" placeholder="{% trans 'Enter your password' %}" required>
+                    </div>
+
+                    <div class="mb-3 text-end">
+                        <a href="{% url 'password_reset' %}" class="text-decoration-none text-muted small">
+                            {% trans "Forgot Password?" %}
+                        </a>
+                    </div>
+                    
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            {% trans "Invalid username or password. Please try again." %}
+                        </div>
+                    {% endif %}
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-sign-in-alt"></i> {% trans "Login" %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="text-center mt-3">
+            <p>{% trans "Don't have an account?" %} <a href="{% url 'register' %}" class="text-primary fw-bold text-decoration-none">{% trans "Register here" %}</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

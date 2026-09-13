@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Blood Compatibility Checker" %} — Patiya RedPulse{% endblock %}
+
+{% block content %}
+<div class="card mb-4 reveal">
+    <div class="card-header">
+        <h4 class="mb-0"><i class="fas fa-tint"></i> {% trans "Blood Compatibility Checker" %}</h4>
+    </div>
+    <div class="card-body">
+        <p class="text-muted mb-4">
+            {% blocktrans %}Tap a blood group to instantly see who it can donate to and who it can safely receive from. This is a general ABO/Rh reference only — a hospital or blood bank must always confirm compatibility with a cross-match test before any transfusion.{% endblocktrans %}
+        </p>
+
+        <div class="compat-grid mb-4" id="compatGrid">
+            {% for bg in blood_groups %}
+                <button type="button" class="compat-chip" data-group="{{ bg }}">{{ bg }}</button>
+            {% endfor %}
+        </div>
+
+        <div class="row g-3" id="compatResult" style="display:none;">
+            <div class="col-md-6">
+                <div class="compat-result-col">
+                    <h6><i class="fas fa-arrow-up text-danger"></i> {% trans "Can donate to" %}</h6>
+                    <div id="donateToList"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="compat-result-col">
+                    <h6><i class="fas fa-arrow-down text-primary"></i> {% trans "Can receive from" %}</h6>
+                    <div id="receiveFromList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info mt-4 mb-0" id="compatHint">
+            <i class="fas fa-hand-pointer"></i> {% trans "Select a blood group above to see its matches." %}
+        </div>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-6">
+        <div class="card h-100 reveal">
+            <div class="card-body">
+                <h6><i class="fas fa-star text-warning"></i> {% trans "O− : Universal Donor" %}</h6>
+                <p class="text-muted small mb-0">{% blocktrans %}O− has no A, B, or Rh antigens, so it can be given to patients of any blood group in an emergency when there's no time to match.{% endblocktrans %}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100 reveal">
+            <div class="card-body">
+                <h6><i class="fas fa-star text-warning"></i> {% trans "AB+ : Universal Recipient" %}</h6>
+                <p class="text-muted small mb-0">{% blocktrans %}AB+ patients already carry A, B, and Rh antigens, so they can safely receive red cells from any blood group.{% endblocktrans %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    var donateTo = {
+        'O-':  ['O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+'],
+        'O+':  ['O+', 'A+', 'B+', 'AB+'],
+        'A-':  ['A-', 'A+', 'AB-', 'AB+'],
+        'A+':  ['A+', 'AB+'],
+        'B-':  ['B-', 'B+', 'AB-', 'AB+'],
+        'B+':  ['B+', 'AB+'],
+        'AB-': ['AB-', 'AB+'],
+        'AB+': ['AB+']
+    };
+    var receiveFrom = {
+        'O-':  ['O-'],
+        'O+':  ['O-', 'O+'],
+        'A-':  ['O-', 'A-'],
+        'A+':  ['O-', 'O+', 'A-', 'A+'],
+        'B-':  ['O-', 'B-'],
+        'B+':  ['O-', 'O+', 'B-', 'B+'],
+        'AB-': ['O-', 'A-', 'B-', 'AB-'],
+        'AB+': ['O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+']
+    };
+
+    function pills(container, groups) {
+        container.innerHTML = '';
+        groups.forEach(function (g) {
+            var span = document.createElement('span');
+            span.className = 'compat-pill';
+            span.textContent = g;
+            container.appendChild(span);
+        });
+    }
+
+    var grid = document.getElementById('compatGrid');
+    var result = document.getElementById('compatResult');
+    var hint = document.getElementById('compatHint');
+
+    grid.addEventListener('click', function (e) {
+        var btn = e.target.closest('.compat-chip');
+        if (!btn) return;
+
+        grid.querySelectorAll('.compat-chip').forEach(function (c) { c.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+
+        var group = btn.getAttribute('data-group');
+        pills(document.getElementById('donateToList'), donateTo[group]);
+        pills(document.getElementById('receiveFromList'), receiveFrom[group]);
+
+        result.style.display = 'flex';
+        hint.style.display = 'none';
+    });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Find Donors" %} — Patiya RedPulse{% endblock %}
+
+{% block content %}
+<datalist id="patiyaUnions">
+    <option value="Kolagaon">
+    <option value="Kashiaish">
+    <option value="Asia">
+    <option value="Kusumpura">
+    <option value="Jiri">
+    <option value="Junglekhain">
+    <option value="Baralia">
+    <option value="Dhalghat">
+    <option value="Habilasdwip">
+    <option value="Haidgaon">
+    <option value="Kelishahar">
+    <option value="Kachuai">
+    <option value="Kharena">
+    <option value="Shovandandi">
+    <option value="Bhatikhain">
+    <option value="Chhonhara">
+    <option value="Dakshin Bhurshi">
+</datalist>
+
+<div class="card reveal">
+    <div class="card-header">
+        <h4 class="mb-0"><i class="fas fa-search"></i> {% trans "Find Blood Donors" %}</h4>
+    </div>
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label">{% trans "Blood Group" %}</label>
+                <select name="blood_group" class="form-control">
+                    <option value="">{% trans "All Blood Groups" %}</option>
+                    {% for bg in blood_groups %}
+                        <option value="{{ bg }}" {% if bg == selected_blood_group %}selected{% endif %}>
+                            {{ bg }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">{% trans "District" %}</label>
+                <input type="text" name="district" class="form-control"
+                       placeholder="{% trans 'Enter district' %}" value="{{ selected_district }}">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">{% trans "Upazila / Union" %}</label>
+                <input type="text" name="upazila" class="form-control" list="patiyaUnions"
+                       placeholder="{% trans 'Enter upazila' %}" value="{{ selected_upazila }}">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">&nbsp;</label>
+                <button type="submit" class="btn btn-primary form-control">
+                    <i class="fas fa-search"></i> {% trans "Search" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+        <h5 class="mb-0"><i class="fas fa-users"></i> {% trans "Available Donors" %} ({{ donors.count }})</h5>
+        <a href="{% url 'register' %}" class="btn btn-outline-primary">
+            <i class="fas fa-user-plus"></i> {% trans "Register as Donor" %}
+        </a>
+    </div>
+
+    {% if donors %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>{% trans "Name" %}</th>
+                        <th>{% trans "Blood Group" %}</th>
+                        <th>{% trans "Location" %}</th>
+                        <th>{% trans "Status & Countdown" %}</th>
+                        <th>{% trans "Contact Options" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for donor in donors %}
+                        <tr>
+                            <td>
+                                <strong>{{ donor.full_name }}</strong>
+                                <span class="lifesaver-badge tier-{{ donor.lifesaver_tier }} ms-1" style="padding: 0.2rem 0.55rem; font-size: 0.7rem;">
+                                    <i class="fas fa-award"></i>
+                                    {% if donor.lifesaver_tier == 'gold' %}{% trans "Gold" %}
+                                    {% elif donor.lifesaver_tier == 'silver' %}{% trans "Silver" %}
+                                    {% elif donor.lifesaver_tier == 'bronze' %}{% trans "Bronze" %}
+                                    {% else %}{% trans "New" %}{% endif %}
+                                </span><br>
+                                <small class="text-muted">
+                                    {% if donor.gender == 'Male' %}
+                                        <i class="fas fa-mars"></i>
+                                    {% elif donor.gender == 'Female' %}
+                                        <i class="fas fa-venus"></i>
+                                    {% else %}
+                                        <i class="fas fa-genderless"></i>
+                                    {% endif %}
+                                    {{ donor.age }} {% trans "years old" %}
+                                </small>
+                            </td>
+                            <td>
+                                <span class="blood-group-badge">{{ donor.blood_group }}</span>
+                            </td>
+                            <td>
+                                {{ donor.district }}<br>
+                                <small class="text-muted">{{ donor.upazila }}</small>
+                            </td>
+                            <td>
+                                {% if donor.is_eligible %}
+                                    <span class="badge bg-success mb-1">
+                                        <i class="fas fa-check-circle"></i> {% trans "Eligible to Donate" %}
+                                    </span><br>
+                                    <small class="text-success fw-bold">{% trans "Ready to help!" %}</small>
+                                {% else %}
+                                    <span class="badge bg-danger mb-1">
+                                        <i class="fas fa-clock"></i> {% trans "Not Eligible" %}
+                                    </span><br>
+                                    <small class="text-muted">
+                                        {% trans "Available in:" %} <strong>{{ donor.days_until_eligible }} {% trans "days" %}</strong>
+                                    </small>
+                                {% endif %}
+                            </td>
+                            <td style="min-width: 180px;">
+                                <div class="d-flex flex-column gap-1">
+                                    <a href="tel:{{ donor.mobile_number }}" class="call-btn justify-content-center">
+                                        <i class="fas fa-phone"></i> {{ donor.mobile_number }}
+                                    </a>
+                                    <a href="https://wa.me/88{{ donor.mobile_number }}?text=আসসালামু আলাইকুম, পটিয়া রেড-পালস (Patiya RedPulse) থেকে আপনার নম্বরটি পেয়েছি। আপনার {{ donor.blood_group }} রক্ত কি দান করা সম্ভব?"
+                                       target="_blank" rel="noopener" class="whatsapp-btn justify-content-center">
+                                        <i class="fab fa-whatsapp"></i> WhatsApp
+                                    </a>
+                                    <button type="button" class="copy-btn justify-content-center" data-copy="{{ donor.mobile_number }}" data-copied-label="{% trans 'Copied' %}">
+                                        <i class="far fa-copy"></i> {% trans "Copy Number" %}
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="text-center py-5">
+            <i class="fas fa-search fa-3x text-muted mb-3"></i>
+            <h5 class="text-muted">{% trans "No donors found" %}</h5>
+            <p class="text-muted">{% trans "Try adjusting your search criteria or check back later." %}</p>
+            <a href="{% url 'register' %}" class="btn btn-primary">
+                <i class="fas fa-user-plus"></i> {% trans "Register as a Donor" %}
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+<div class="card mt-4 reveal">
+    <div class="card-header">
+        <h6 class="mb-0"><i class="fas fa-info-circle"></i> {% trans "Important Notes" %}</h6>
+    </div>
+    <div class="card-body">
+        <ul class="mb-0">
+            <li><strong>{% trans "Eligibility:" %}</strong> {% trans "Donors must wait 90 days (men) or 120 days (women) between donations." %}</li>
+            <li><strong>{% trans "Countdown:" %}</strong> {% trans "The days shown indicate when the donor will be ready for the next donation." %}</li>
+            <li><strong>{% trans "WhatsApp:" %}</strong> {% trans "Use the WhatsApp button for quick communication if the donor doesn't pick up the call." %}</li>
+            <li><strong>{% trans "Compatibility:" %}</strong> {% trans "Not sure which group can donate to whom? Check the" %} <a href="{% url 'compatibility_guide' %}">{% trans "compatibility checker" %}</a>.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

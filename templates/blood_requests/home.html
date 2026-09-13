@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-mesh" aria-hidden="true"></div>
+    <div class="container">
+        <div class="hero-content text-center mx-auto" style="max-width: 740px;">
+            <span class="hero-eyebrow"><i class="fas fa-map-marker-alt"></i> {% trans "Patiya, Chattogram" %}</span>
+            <h1 class="hero-title">
+                Patiya <span class="accent">RedPulse</span>
+            </h1>
+            <p class="hero-subtitle mx-auto">
+                {% blocktrans %}A direct line between blood seekers and eligible donors — no middleman, no waiting room. Built for the moments that can't wait.{% endblocktrans %}
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="{% url 'donor_list' %}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-search"></i> {% trans "Find Donors Now" %}
+                </a>
+                <a href="{% url 'submit_blood_request' %}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-plus"></i> {% trans "Submit Request" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-md-3 col-6 mb-4">
+        <a href="{% url 'donor_list' %}" class="text-decoration-none">
+            <div class="stats-card text-center reveal">
+                <div class="stats-icon stats-donors mx-auto">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stats-number">{{ total_donors }}</div>
+                <div class="stats-label">{% trans "Total Donors" %}</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+        <a href="{% url 'donor_list' %}" class="text-decoration-none">
+            <div class="stats-card text-center reveal">
+                <div class="stats-icon stats-available mx-auto">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="stats-number">{{ available_donors }}</div>
+                <div class="stats-label">{% trans "Available Now" %}</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+        <a href="{% url 'blood_requests_list' %}" class="text-decoration-none">
+            <div class="stats-card text-center reveal">
+                <div class="stats-icon stats-requests mx-auto">
+                    <i class="fas fa-list"></i>
+                </div>
+                <div class="stats-number">{{ total_requests }}</div>
+                <div class="stats-label">{% trans "Blood Requests" %}</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+        <a href="{% url 'blood_requests_list' %}" class="text-decoration-none">
+            <div class="stats-card text-center reveal">
+                <div class="stats-icon stats-emergency mx-auto">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stats-number">{{ emergency_requests }}</div>
+                <div class="stats-label">{% trans "Emergency" %}</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card mb-4 reveal">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-chart-simple"></i> {% trans "Available Donors by Blood Group" %}</h5>
+            </div>
+            <div class="card-body">
+                {% for row in blood_group_breakdown %}
+                    <div class="bg-chart-row">
+                        <span class="bg-chart-label">{{ row.group }}</span>
+                        <span class="bg-chart-track">
+                            <span class="bg-chart-fill" style="width: {{ row.percent }}%;"></span>
+                        </span>
+                        <span class="bg-chart-count">{{ row.count }}</span>
+                    </div>
+                {% endfor %}
+                <p class="text-muted small mb-0 mt-2">
+                    <i class="fas fa-circle-info"></i>
+                    {% trans "Live count of donors who have marked themselves Available right now." %}
+                </p>
+            </div>
+        </div>
+
+        <div class="card mb-4 reveal">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-info-circle"></i> {% trans "How It Works" %}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="d-flex mb-4">
+                            <div class="stats-icon stats-donors me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div>
+                                <h6>{% trans "Search Donors" %}</h6>
+                                <p class="text-muted mb-0">{% trans "Find donors by blood group, district, or upazila" %}</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="stats-icon stats-available me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h6>{% trans "Call Directly" %}</h6>
+                                <p class="text-muted mb-0">{% trans "One-click calling to connect instantly" %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex mb-4">
+                            <div class="stats-icon stats-requests me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h6>{% trans "Check Eligibility" %}</h6>
+                                <p class="text-muted mb-0">{% trans "Automatic eligibility countdown (90 days for men, 120 for women)" %}</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="stats-icon stats-emergency me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div>
+                                <h6>{% trans "Save Lives" %}</h6>
+                                <p class="text-muted mb-0">{% trans "Direct connection saves precious time" %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card mb-4 reveal">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-exclamation-triangle"></i> {% trans "Emergency Notice" %}</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-danger mb-3">
+                    <h6><i class="fas fa-clock"></i> {% trans "Time is Critical" %}</h6>
+                    <p class="mb-0">{% trans "For life-threatening emergencies, contact the nearest hospital immediately while using this platform." %}</p>
+                </div>
+                <div class="alert alert-info mb-0">
+                    <h6><i class="fas fa-shield-alt"></i> {% trans "Safety First" %}</h6>
+                    <p class="mb-0">{% trans "Always verify donor identity and blood compatibility before transfusion." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 reveal">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-users"></i> {% trans "For Blood Seekers" %}</h5>
+            </div>
+            <div class="card-body">
+                <p>{% trans "Need blood urgently? Our platform connects you directly with eligible donors in your area." %}</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success me-2"></i>{% trans "Search by blood group and location" %}</li>
+                    <li><i class="fas fa-check text-success me-2"></i>{% trans "See real-time eligibility status" %}</li>
+                    <li><i class="fas fa-check text-success me-2"></i>{% trans "One-click calling or WhatsApp" %}</li>
+                    <li><i class="fas fa-check text-success me-2"></i>{% trans "24/7 access" %}</li>
+                </ul>
+                <a href="{% url 'donor_list' %}" class="btn btn-primary">
+                    <i class="fas fa-search"></i> {% trans "Find Donors" %}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 reveal">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-hand-holding-heart"></i> {% trans "For Donors" %}</h5>
+            </div>
+            <div class="card-body">
+                <p>{% trans "Register as a donor and help save lives in your community. Your contribution matters!" %}</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success me-2"></i>{% trans "Simple registration process" %}</li>
+                    <li><i class="fas fa-check text-success me-2"></i>{% trans "Automatic eligibility tracking" %}</li>
+                    <li><i class="fas fa-check text-success me-2"></i>{% trans "Control your availability status" %}</li>
+                    <li><i class="fas fa-check text-success me-2"></i>{% trans "Earn Life-Saver recognition" %}</li>
+                </ul>
+                <a href="{% url 'register' %}" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> {% trans "Register Now" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card reveal">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="fas fa-shield-alt"></i> {% trans "Important Guidelines" %}</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <h6><i class="fas fa-user-shield text-primary"></i> {% trans "Donor Verification" %}</h6>
+                <ul>
+                    <li>{% trans "Verify donor identity" %}</li>
+                    <li>{% trans "Check blood compatibility" %} — {% trans "use our" %} <a href="{% url 'compatibility_guide' %}">{% trans "compatibility checker" %}</a></li>
+                    <li>{% trans "Confirm donation date" %}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6><i class="fas fa-calendar-check text-success"></i> {% trans "Eligibility Rules" %}</h6>
+                <ul>
+                    <li>{% trans "90 days between donations for men, 120 for women" %}</li>
+                    <li>{% trans "18+ years old" %}</li>
+                    <li>{% trans "Good health condition" %}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6><i class="fas fa-phone text-warning"></i> {% trans "Emergency Contact" %}</h6>
+                <ul>
+                    <li>{% trans "Hospital direct line" %}</li>
+                    <li>{% trans "Doctor consultation" %}</li>
+                    <li>{% trans "Medical supervision" %}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
