@@ -105,7 +105,9 @@
                                 </small>
                             </td>
                             <td>
-                                <span class="blood-group-badge">{{ donor.blood_group }}</span>
+                                <span class="blood-group-badge" style="background-color: #b3122a !important; color: #ffffff !important; padding: 0.4rem 0.85rem; border-radius: 8px; font-weight: 700; display: inline-block;">
+                                    {{ donor.blood_group }}
+                                </span>
                             </td>
                             <td>
                                 {{ donor.district }}<br>
@@ -135,7 +137,7 @@
                                        target="_blank" rel="noopener" class="whatsapp-btn justify-content-center">
                                         <i class="fab fa-whatsapp"></i> WhatsApp
                                     </a>
-                                    <button type="button" class="copy-btn justify-content-center" data-copy="{{ donor.mobile_number }}" data-copied-label="{% trans 'Copied' %}">
+                                    <button type="button" class="copy-btn justify-content-center" style="background-color: #2b2d32 !important; color: #ffffff !important; border: 1px solid #4a4d55 !important;" data-copy="{{ donor.mobile_number }}" data-copied-label="{% trans 'Copied' %}">
                                         <i class="far fa-copy"></i> {% trans "Copy Number" %}
                                     </button>
                                 </div>
