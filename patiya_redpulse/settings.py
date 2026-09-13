@@ -4,10 +4,10 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Security: Production-এর জন্য SECRET_KEY
+# Security Settings
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-development-key-change-in-production')
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 _allowed_hosts = os.environ.get('ALLOWED_HOSTS')
 ALLOWED_HOSTS = _allowed_hosts.split(',') if _allowed_hosts else ['*']
@@ -57,9 +57,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'patiya_redpulse.wsgi.application'
 
+# Vercel-এর Read-Only সিস্টেমের জন্য /tmp/db.sqlite3 পাথ নিশ্চিত করা হলো
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
+        default=f"sqlite:////tmp/db.sqlite3",
         conn_max_age=600
     )
 }
@@ -76,7 +77,6 @@ TIME_ZONE = 'Asia/Dhaka'
 USE_I18N = True
 USE_TZ = True
 
-# Translation strings (gettext_lazy ছাড়া সরাসরি স্ট্রিং টিপল ব্যবহার করা নিরাপদ)
 LANGUAGES = [
     ('en', 'English'),
     ('bn', 'Bangla'),
@@ -88,7 +88,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-# Vercel-এর Serverless Environment-এর জন্য সহনশীল Storage
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = '/media/'
