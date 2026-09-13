@@ -214,9 +214,14 @@ a:hover { color: var(--pulse-red-dark); }
     height: 20px;
     background: var(--surface);
     border-bottom: 1px solid var(--line);
+    overflow: hidden;
 }
 
-.pulse-divider svg { width: 100%; height: 100%; display: block; }
+.pulse-divider svg { 
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+}
 
 .pulse-line {
     fill: none;
@@ -224,8 +229,8 @@ a:hover { color: var(--pulse-red-dark); }
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+    stroke-dasharray: 2000;      
+    stroke-dashoffset: 2000;     
     animation: draw-pulse 2.6s ease-out forwards, pulse-glow 3.2s ease-in-out 2.6s infinite;
     opacity: 0.85;
 }
